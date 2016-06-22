@@ -1,3 +1,9 @@
+### Prerequisites:
+
+* scala 2.10.4 or higher
+* sbt (scala build tool)
+* Spark 1.6.0 on Hadoop cluster
+
 ### How to build:
 In project directory type:
 ```sh	

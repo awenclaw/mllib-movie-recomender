@@ -36,11 +36,14 @@ object Start {
     }
   }
 
+
+
   def run(params: Params) ={
     val conf = new SparkConf().setAppName(s"Movie recommender app with params: $params")
     val sc = new SparkContext(conf)
 
     val inputData = sc.textFile(params.inputDataFile)
+
     val movieRatings = inputData.formatInputData
     val splitter  = Splitter(movieRatings, params.sizeOfTrainingDataSet)
 
