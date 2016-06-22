@@ -14,7 +14,7 @@ object Start {
     inputDataFile:String = "/aw_movies/input_data/u1.test",
     outputModelDir:String = "/aw_movies/input_data/model",
     sizeOfTrainingDataSet:Double = 0.8,
-    alsNumOfRanks:Int = 5,
+    alsRank:Int = 5,
     alsNumOfIterations:Int = 20,
     alsLambda:Double = 0.01
   )
@@ -25,7 +25,7 @@ object Start {
       opt[String]("inputDataFile").action((x, c) => c.copy(inputDataFile = x))
       opt[String]("outputModelDir").action((x, c) => c.copy(outputModelDir = x))
       opt[Double]("sizeOfTrainingDataSet").action((x, c) => c.copy(sizeOfTrainingDataSet = x))
-      opt[Int]("alsNumOfRanks").action((x, c) => c.copy(alsNumOfRanks = x))
+      opt[Int]("alsRank").action((x, c) => c.copy(alsRank = x))
       opt[Int]("alsNumOfIterations").action((x, c) => c.copy(alsNumOfIterations = x))
       opt[Double]("alsLambda").action((x, c) => c.copy(alsLambda = x))
     }
@@ -49,7 +49,7 @@ object Start {
 
     val model = ALS.train(
       splitter.trainingDataSet,
-      params.alsNumOfRanks,
+      params.alsRank,
       params.alsNumOfIterations,
       params.alsLambda
     )
